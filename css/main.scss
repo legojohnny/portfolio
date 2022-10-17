@@ -1,0 +1,537 @@
+$메인색상: rgb(255, 215, 50);
+$서브색상: rgb(221, 154, 221);
+$기본사이즈: 1rem;
+
+@font-face {
+  font-family: "nanumsquare";
+  src: url(../font/NanumSquareR.woff);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: $기본사이즈 + 3rem;
+}
+
+h2 {
+  font-size: $기본사이즈 + 1rem;
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  font-size: $기본사이즈;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.text-secondary {
+  text-transform: uppercase;
+  color: $메인색상;
+}
+
+//
+// TOP BUTTON 디자인
+#top {
+  opacity: 1;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  color: $메인색상;
+  background: rgba(52, 58, 64, 0.5);
+  line-height: 40px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+//
+//  NAVIGATION 디자인
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 300;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-container {
+  max-width: 1600px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #eee;
+  font-size: $기본사이즈 + 0.25rem;
+}
+
+.navbvar-logo {
+  flex: 1;
+  width: 32px;
+  height: 32px;
+}
+
+.navbar-list {
+  flex: 9;
+}
+
+.btn-menu {
+  display: none;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-nav li {
+  margin: 0 1.5rem;
+}
+
+.navbar-nav a {
+  color: #eee;
+  text-decoration: none;
+  font-size: $기본사이즈 + 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav a:hover {
+  color: $메인색상;
+}
+
+// NAVIGATION 배경색
+.navbar-active {
+  background-color: rgb(68, 68, 68, 0.7);
+}
+
+// 반응형 NAVIGATION 디자인
+.navbar-media {
+  display: none;
+}
+
+.navbar-nav-media {
+  width: 100%;
+  background-color: rgb(68, 68, 68, 1);
+  padding: 1rem;
+  margin: 0;
+}
+
+.navbar-nav-media .nav-item {
+  margin: 1.25rem;
+}
+
+.navbar-nav-media a {
+  color: white;
+  text-decoration: none;
+  font-size: $기본사이즈 + 0.25rem;
+}
+
+//
+//  HEADER
+.main-background {
+  display: flex;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  height: 100vh;
+  padding: 5rem 1rem;
+  color: white;
+}
+
+.main-text {
+  float: left;
+  margin: 50px auto;
+  max-width: 600px;
+}
+
+// 우주비행사 애니메이션
+.main-img {
+  width: 400px;
+  float: right;
+  margin: 10px auto;
+  animation: moving 5s both linear infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(15px) translateX(15px);
+  }
+  50% {
+    transform: translateY(25px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(15px) translateX(15px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+// 검은색 버튼 디자인
+.btn {
+  display: inline-block;
+  padding: 0.9375rem 1.25rem;
+  margin: 1rem 0;
+  text-decoration: none;
+  font-size: $기본사이즈;
+  font-family: "nanumsquare", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-black {
+  @extend .btn;
+  background-color: #444;
+  color: white;
+}
+
+.btn-black:hover {
+  background-color: $서브색상;
+}
+
+.btn-black:active {
+  background-color: rgb(192, 97, 192);
+}
+
+.btn-view,
+.btn-code {
+  @extend .btn;
+  text-decoration: none;
+  background-color: #444;
+  color: white;
+  font-size: $기본사이즈;
+}
+
+.btn-view:hover,
+.btn-code:hover {
+  background-color: $서브색상;
+}
+
+.btn-view:active,
+.btn-code:active {
+  background-color: rgb(192, 97, 192);
+}
+
+//
+// ABOUT 디자인
+.about-background {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.about-text {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 3s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+//
+// SKILLS 디자인
+.skills-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.skills-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-items > div {
+  width: 20%;
+}
+
+// skill 배경 동그라미 디자인
+.skills-background h5 {
+  margin-bottom: 0px;
+}
+
+.skills-icon {
+  background: white;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.skills-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+//
+// PORTFOLIO 디자인
+.portfolio-background {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.portfolio-container {
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+.portfolio-list {
+  width: 300vw;
+  transition: all 1s;
+  margin-left: 10%;
+}
+
+.portfolio-wrap {
+  width: 100vw;
+  float: left;
+}
+
+.portfolio-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 85%;
+  padding: 0 1rem;
+}
+
+article {
+  width: 550px;
+}
+
+figure {
+  width: 650px;
+  margin: 0;
+  text-align: center;
+}
+
+figure img {
+  width: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
+
+// 케러셀 컨트롤(페이지네이션) 디자인
+.slide-pagenation {
+  margin: 1rem 0;
+}
+
+.before,
+.next {
+  background-color: white;
+  border: none;
+  border-radius: 3px;
+  margin: 4px 2px;
+  padding: 1rem;
+  cursor: pointer;
+  vertical-align: middle;
+  font-size: $기본사이즈;
+  font-family: "nanumsquare", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.slide-btn {
+  width: 20px;
+  height: 20px;
+  background-color: #bbb;
+  border: none;
+  border-radius: 50%;
+  margin: 4px 2px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.slide-btn:hover {
+  background-color: $서브색상;
+}
+
+.slide-active {
+  background-color: $서브색상;
+}
+
+//
+// FOOTER
+.contact-background {
+  text-align: center;
+  padding-bottom: 5rem;
+}
+
+.contact-list {
+  padding: 0;
+  margin-bottom: 3rem;
+}
+
+.contact-list li {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.contact-list li a {
+  display: block;
+  text-decoration: none;
+  height: 4rem;
+  width: 4rem;
+  font-size: $기본사이즈 + 0.5rem;
+  border-radius: 50%;
+  line-height: 4rem;
+  background-color: $메인색상;
+  color: white;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.contact-list li a:hover {
+  background-color: $서브색상;
+}
+
+.footer-text {
+  font-size: $기본사이즈 - 0.125rem;
+}
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+  //
+  // NAVIGATION 반응형 디자인
+  .navbar-container {
+    height: 60px;
+  }
+
+  .navbar-list {
+    display: none;
+  }
+
+  .btn-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .navbar-media {
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    transition: all 1s;
+  }
+
+  .navbar-show {
+    visibility: visible;
+    height: 287px;
+  }
+
+  //
+  // HEADER 반응형 디자인
+  .main-img {
+    width: 260px;
+    display: block;
+    float: none;
+    margin: 10px auto;
+  }
+
+  .main-text {
+    float: none;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .main-background {
+    height: auto;
+  }
+
+  //
+  // SKILLS 반응형 디자인
+  .skills-items > div {
+    width: 50%;
+  }
+
+  //
+  // PORTFOLIO 반응형 디자인
+  .portfolio-background {
+    padding: 5rem 0;
+  }
+
+  .portfolio-container {
+    overflow: hidden;
+  }
+
+  .portfolio-list {
+    transition: all 1s;
+    margin-left: 0%;
+  }
+
+  .portfolio-wrap {
+    width: 100vw;
+    float: left;
+  }
+
+  .portfolio-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 0 1rem;
+  }
+
+  .btn-view,
+  .btn-code {
+    font-size: $기본사이즈 - 0.5rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  // PORTFOLIO 반응형 디자인
+  .portfolio-background {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .portfolio-cont {
+    display: block;
+    text-align: center;
+  }
+
+  article {
+    width: 100%;
+  }
+  figure {
+    width: 100%;
+  }
+
+  figure img {
+    width: 100%;
+  }
+}
