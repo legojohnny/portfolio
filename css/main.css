@@ -29,6 +29,11 @@ p {
   font-size: 1rem;
 }
 
+.contact-background, .design-background, .portfolio-background, .skills-background, .about-background {
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
 .container {
   max-width: 1000px;
   margin: auto;
@@ -136,8 +141,7 @@ p {
 
 .main-background {
   display: flex;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -157,7 +161,7 @@ p {
   float: right;
   margin: 10px auto;
   -webkit-animation: moving 5s both linear infinite;
-  animation: moving 5s both linear infinite;
+          animation: moving 5s both linear infinite;
 }
 
 @-webkit-keyframes moving {
@@ -195,10 +199,8 @@ p {
     transform: translateY(0px) translateX(0px);
   }
 }
-.btn,
-.btn-view,
-.btn-code,
-.btn-black {
+.btn, .btn-view,
+.btn-code, .btn-black {
   display: inline-block;
   padding: 0.9375rem 1.25rem;
   margin: 1rem 0;
@@ -242,11 +244,6 @@ p {
   background-color: rgb(192, 97, 192);
 }
 
-.about-background {
-  text-align: center;
-  padding: 5rem 1rem;
-}
-
 .about-text {
   opacity: 0;
   transform: translateY(50px);
@@ -259,15 +256,12 @@ p {
 }
 
 .skills-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   width: 100%;
   color: white;
-  text-align: center;
-  padding: 5rem 1rem;
 }
 
 .skills-items {
@@ -297,12 +291,12 @@ p {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 .portfolio-background {
-  padding: 5rem 0;
-  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .portfolio-container {
@@ -343,12 +337,8 @@ figure {
 figure img {
   width: 90%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.slide-pagenation {
-  margin: 1rem 0;
 }
 
 .before,
@@ -384,9 +374,26 @@ figure img {
   background-color: rgb(221, 154, 221);
 }
 
-.contact-background {
-  text-align: center;
-  padding-bottom: 5rem;
+.row {
+  display: grid;
+  max-width: 1000px;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.col img {
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.col {
+  cursor: pointer;
+}
+
+.col:hover {
+  transition: all 1s;
+  transform: scale(1.5);
 }
 
 .contact-list {
@@ -410,6 +417,7 @@ figure img {
   background-color: rgb(255, 215, 50);
   color: white;
   transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-list li a:hover {
@@ -441,7 +449,7 @@ figure img {
   }
   .navbar-show {
     visibility: visible;
-    height: 287px;
+    height: 334px;
   }
   .main-img {
     width: 260px;
@@ -482,8 +490,11 @@ figure img {
     padding: 0 1rem;
   }
   .btn-view,
-  .btn-code {
+.btn-code {
     font-size: 0.5rem;
+  }
+  .row {
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (max-width: 320px) {
@@ -504,4 +515,10 @@ figure img {
   figure img {
     width: 100%;
   }
-} /*# sourceMappingURL=test.css.map */
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .contact-background {
+    padding-top: 0;
+  }
+}/*# sourceMappingURL=main.css.map */

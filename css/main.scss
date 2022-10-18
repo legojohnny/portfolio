@@ -33,6 +33,11 @@ p {
   font-size: $기본사이즈;
 }
 
+%background {
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
 .container {
   max-width: 1000px;
   margin: auto;
@@ -240,8 +245,7 @@ p {
 //
 // ABOUT 디자인
 .about-background {
-  text-align: center;
-  padding: 5rem 1rem;
+  @extend %background;
 }
 
 .about-text {
@@ -265,8 +269,7 @@ p {
   background-attachment: fixed;
   width: 100%;
   color: white;
-  text-align: center;
-  padding: 5rem 1rem;
+  @extend %background;
 }
 
 .skills-items {
@@ -302,8 +305,9 @@ p {
 //
 // PORTFOLIO 디자인
 .portfolio-background {
-  padding: 5rem 0;
-  text-align: center;
+  @extend %background;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .portfolio-container {
@@ -348,10 +352,6 @@ figure img {
 }
 
 // 케러셀 컨트롤(페이지네이션) 디자인
-.slide-pagenation {
-  margin: 1rem 0;
-}
-
 .before,
 .next {
   background-color: white;
@@ -386,10 +386,37 @@ figure img {
 }
 
 //
+// DESIGN
+.design-background {
+  @extend %background;
+}
+
+.row {
+  display: grid;
+  max-width: 1000px;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.col img {
+  width: 100%;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
+
+.col {
+  cursor: pointer;
+}
+
+.col:hover {
+  transition: all 1s;
+  transform: scale(1.5);
+}
+
+//
 // FOOTER
 .contact-background {
-  text-align: center;
-  padding-bottom: 5rem;
+  @extend %background;
 }
 
 .contact-list {
@@ -413,6 +440,7 @@ figure img {
   background-color: $메인색상;
   color: white;
   transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
 
 .contact-list li a:hover {
@@ -450,7 +478,7 @@ figure img {
 
   .navbar-show {
     visibility: visible;
-    height: 287px;
+    height: 334px;
   }
 
   //
@@ -510,6 +538,12 @@ figure img {
   .btn-code {
     font-size: $기본사이즈 - 0.5rem;
   }
+
+  //
+  // DESIGN 반응형 디자인
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -533,5 +567,17 @@ figure img {
 
   figure img {
     width: 100%;
+  }
+
+  //
+  // DESIGN 반응형 디자인
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  //
+  //  FOOTER 반응형 디자인
+  .contact-background {
+    padding-top: 0;
   }
 }
