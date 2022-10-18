@@ -29,7 +29,11 @@ p {
   font-size: 1rem;
 }
 
-.contact-background, .design-background, .portfolio-background, .skills-background, .about-background {
+.contact-background,
+.design-background,
+.portfolio-background,
+.skills-background,
+.about-background {
   padding: 5rem 1rem;
   text-align: center;
 }
@@ -141,7 +145,8 @@ p {
 
 .main-background {
   display: flex;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -161,7 +166,7 @@ p {
   float: right;
   margin: 10px auto;
   -webkit-animation: moving 5s both linear infinite;
-          animation: moving 5s both linear infinite;
+  animation: moving 5s both linear infinite;
 }
 
 @-webkit-keyframes moving {
@@ -199,8 +204,10 @@ p {
     transform: translateY(0px) translateX(0px);
   }
 }
-.btn, .btn-view,
-.btn-code, .btn-black {
+.btn,
+.btn-view,
+.btn-code,
+.btn-black {
   display: inline-block;
   padding: 0.9375rem 1.25rem;
   margin: 1rem 0;
@@ -256,7 +263,8 @@ p {
 }
 
 .skills-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -291,7 +299,7 @@ p {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .portfolio-background {
@@ -337,7 +345,7 @@ figure {
 figure img {
   width: 90%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -490,7 +498,7 @@ figure img {
     padding: 0 1rem;
   }
   .btn-view,
-.btn-code {
+  .btn-code {
     font-size: 0.5rem;
   }
   .row {
@@ -521,4 +529,4 @@ figure img {
   .contact-background {
     padding-top: 0;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
