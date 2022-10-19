@@ -544,6 +544,11 @@ figure img {
   .row {
     grid-template-columns: 1fr 1fr;
   }
+
+  .col:hover {
+    transition: none;
+    transform: none;
+  }
 }
 
 @media screen and (max-width: 320px) {
