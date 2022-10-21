@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "nanumsquare";
   src: url(../font/NanumSquareR.woff);
@@ -29,7 +28,11 @@ p {
   font-size: 1rem;
 }
 
-.contact-background, .design-background, .portfolio-background, .skills-background, .about-background {
+.contact-background,
+.design-background,
+.portfolio-background,
+.skills-background,
+.about-background {
   padding: 5rem 1rem;
   text-align: center;
 }
@@ -139,9 +142,18 @@ p {
   font-size: 1.25rem;
 }
 
+.navscroll {
+  width: 0%;
+  height: 2px;
+  background-color: rgb(255, 215, 50);
+  position: fixed;
+  transition: all 1s;
+}
+
 .main-background {
   display: flex;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -161,7 +173,7 @@ p {
   float: right;
   margin: 10px auto;
   -webkit-animation: moving 5s both linear infinite;
-          animation: moving 5s both linear infinite;
+  animation: moving 5s both linear infinite;
 }
 
 @-webkit-keyframes moving {
@@ -199,8 +211,10 @@ p {
     transform: translateY(0px) translateX(0px);
   }
 }
-.btn, .btn-view,
-.btn-code, .btn-black {
+.btn,
+.btn-view,
+.btn-code,
+.btn-black {
   display: inline-block;
   padding: 0.9375rem 1.25rem;
   margin: 1rem 0;
@@ -256,7 +270,8 @@ p {
 }
 
 .skills-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/img/space.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../assets/img/space.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -291,7 +306,7 @@ p {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .portfolio-background {
@@ -337,7 +352,7 @@ figure {
 figure img {
   width: 90%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -374,26 +389,17 @@ figure img {
   background-color: rgb(221, 154, 221);
 }
 
-.row {
-  display: grid;
-  max-width: 1000px;
+.design-items {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 150px;
+  transition: all 0.2s;
+}
+
+.design-items img {
+  display: block;
   margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-}
-
-.col img {
-  width: 100%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.col {
-  cursor: pointer;
-}
-
-.col:hover {
-  transition: all 1s;
-  transform: scale(1.5);
+  max-width: 80%;
 }
 
 .contact-list {
@@ -428,7 +434,6 @@ figure img {
   font-size: 0.875rem;
 }
 
-/* 미디어 쿼리 */
 @media screen and (max-width: 768px) {
   .navbar-container {
     height: 60px;
@@ -490,15 +495,11 @@ figure img {
     padding: 0 1rem;
   }
   .btn-view,
-.btn-code {
+  .btn-code {
     font-size: 0.5rem;
   }
-  .row {
-    grid-template-columns: 1fr 1fr;
-  }
-  .col:hover {
-    transition: none;
-    transform: none;
+  .design-items {
+    top: 255px;
   }
 }
 @media screen and (max-width: 320px) {
@@ -519,10 +520,10 @@ figure img {
   figure img {
     width: 100%;
   }
-  .row {
-    grid-template-columns: 1fr;
+  .design-items {
+    top: 150px;
   }
   .contact-background {
     padding-top: 0;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
