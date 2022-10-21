@@ -1,3 +1,16 @@
+// 스크롤양을 실제 높이에서 보이는 높이 뺀 값으로 나눠서 스크롤퍼센트로 보여주기
+$(window).on("scroll", function () {
+  let realHeight = document.querySelector("html").scrollHeight;
+  let seeHeight = document.querySelector("html").clientHeight;
+  let scrollValue = window.scrollY;
+
+  console.log(realHeight, seeHeight, scrollValue);
+  let scrollPercent = (scrollValue / (realHeight - seeHeight)) * 100;
+  console.log(scrollPercent);
+
+  $(".navscroll").css("width", scrollPercent + "%");
+});
+
 // TOP BUTTON
 // top 버튼을 클릭했을 때 페이지 상단으로 자연스럽게 스크롤
 $("#top").click(function () {
@@ -67,13 +80,13 @@ window.addEventListener("scroll", function () {
 
 // PORTFOLIO
 //케러셀 작동 swipe 구현
-var 시작좌표 = 0;
+var startPoint = 0;
 var mouseClick = false;
 
 $(".portfolio-wrap")
   .eq(0)
   .on("mousedown", function (e) {
-    시작좌표 = e.clientX;
+    startPoint = e.clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -82,10 +95,10 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(${e.clientX - 시작좌표}px)`
+        `translateX(${e.clientX - startPoint}px)`
       );
     }
-    if (e.clientX - 시작좌표 >= 0) {
+    if (e.clientX - startPoint >= 0) {
       $(".portfolio-list").css("transform", "translateX(0vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-1").addClass("slide-active");
@@ -95,7 +108,7 @@ $(".portfolio-wrap")
   .eq(0)
   .on("mouseup", function (e) {
     mouseClick = false;
-    if (e.clientX - 시작좌표 < -150) {
+    if (e.clientX - startPoint < -150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");
@@ -116,7 +129,7 @@ $(".portfolio-wrap")
 $(".portfolio-wrap")
   .eq(1)
   .on("mousedown", function (e) {
-    시작좌표 = e.clientX;
+    startPoint = e.clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -125,7 +138,7 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(calc(${e.clientX - 시작좌표}px - 100vw)`
+        `translateX(calc(${e.clientX - startPoint}px - 100vw)`
       );
     }
   });
@@ -133,13 +146,13 @@ $(".portfolio-wrap")
   .eq(1)
   .on("mouseup", function (e) {
     mouseClick = false;
-    if (e.clientX - 시작좌표 < -150) {
+    if (e.clientX - startPoint < -150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-200vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
-    } else if (e.clientX - 시작좌표 > 150) {
+    } else if (e.clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(0vw)");
@@ -160,7 +173,7 @@ $(".portfolio-wrap")
 $(".portfolio-wrap")
   .eq(2)
   .on("mousedown", function (e) {
-    시작좌표 = e.clientX;
+    startPoint = e.clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -169,10 +182,10 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(calc(${e.clientX - 시작좌표}px - 200vw)`
+        `translateX(calc(${e.clientX - startPoint}px - 200vw)`
       );
     }
-    if (e.clientX - 시작좌표 <= 0) {
+    if (e.clientX - startPoint <= 0) {
       $(".portfolio-list").css("transform", "translateX(-200vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
@@ -182,7 +195,7 @@ $(".portfolio-wrap")
   .eq(2)
   .on("mouseup", function (e) {
     mouseClick = false;
-    if (e.clientX - 시작좌표 > 150) {
+    if (e.clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");
@@ -192,7 +205,7 @@ $(".portfolio-wrap")
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-200vw)");
-      console.log(e.clientX - 시작좌표);
+      console.log(e.clientX - startPoint);
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
     }
@@ -205,7 +218,7 @@ $(".portfolio-wrap")
 $(".portfolio-wrap")
   .eq(0)
   .on("touchstart", function (e) {
-    시작좌표 = e.touches[0].clientX;
+    startPoint = e.touches[0].clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -214,10 +227,10 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(${e.touches[0].clientX - 시작좌표}px)`
+        `translateX(${e.touches[0].clientX - startPoint}px)`
       );
     }
-    if (e.touches[0].clientX - 시작좌표 >= 0) {
+    if (e.touches[0].clientX - startPoint >= 0) {
       $(".portfolio-list").css("transform", "translateX(0vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-1").addClass("slide-active");
@@ -227,14 +240,14 @@ $(".portfolio-wrap")
   .eq(0)
   .on("touchend", function (e) {
     mouseClick = false;
-    if (e.changedTouches[0].clientX - 시작좌표 < -150) {
+    if (e.changedTouches[0].clientX - startPoint < -150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-2").addClass("slide-active");
     } else {
-      console.log(e.changedTouches[0].clientX - 시작좌표);
+      console.log(e.changedTouches[0].clientX - startPoint);
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(0vw)");
@@ -249,7 +262,7 @@ $(".portfolio-wrap")
 $(".portfolio-wrap")
   .eq(1)
   .on("touchstart", function (e) {
-    시작좌표 = e.touches[0].clientX;
+    startPoint = e.touches[0].clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -258,7 +271,7 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(calc(${e.touches[0].clientX - 시작좌표}px - 100vw)`
+        `translateX(calc(${e.touches[0].clientX - startPoint}px - 100vw)`
       );
     }
   });
@@ -266,13 +279,13 @@ $(".portfolio-wrap")
   .eq(1)
   .on("touchend", function (e) {
     mouseClick = false;
-    if (e.changedTouches[0].clientX - 시작좌표 < -150) {
+    if (e.changedTouches[0].clientX - startPoint < -150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-200vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
-    } else if (e.changedTouches[0].clientX - 시작좌표 > 150) {
+    } else if (e.changedTouches[0].clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(0vw)");
@@ -293,7 +306,7 @@ $(".portfolio-wrap")
 $(".portfolio-wrap")
   .eq(2)
   .on("touchstart", function (e) {
-    시작좌표 = e.touches[0].clientX;
+    startPoint = e.touches[0].clientX;
     mouseClick = true;
   });
 $(".portfolio-wrap")
@@ -302,10 +315,10 @@ $(".portfolio-wrap")
     if (mouseClick == true) {
       $(".portfolio-list").css(
         "transform",
-        `translateX(calc(${e.touches[0].clientX - 시작좌표}px - 200vw)`
+        `translateX(calc(${e.touches[0].clientX - startPoint}px - 200vw)`
       );
     }
-    if (e.touches[0].clientX - 시작좌표 <= 0) {
+    if (e.touches[0].clientX - startPoint <= 0) {
       $(".portfolio-list").css("transform", "translateX(-200vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
@@ -315,7 +328,7 @@ $(".portfolio-wrap")
   .eq(2)
   .on("touchend", function (e) {
     mouseClick = false;
-    if (e.changedTouches[0].clientX - 시작좌표 > 150) {
+    if (e.changedTouches[0].clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");

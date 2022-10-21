@@ -148,7 +148,14 @@ p {
   text-decoration: none;
   font-size: $기본사이즈 + 0.25rem;
 }
-
+// 스크롤 퍼센트 바 디자인
+.navscroll {
+  width: 0%;
+  height: 2px;
+  background-color: $메인색상;
+  position: fixed;
+  transition: all 1s;
+}
 //
 //  HEADER
 .main-background {
@@ -390,27 +397,15 @@ figure img {
 .design-background {
   @extend %background;
 }
-
-.row {
-  display: grid;
-  max-width: 1000px;
+.design-items {
+  position: sticky;
+  top: 150px;
+  transition: all 0.2s;
+}
+.design-items img {
+  display: block;
   margin: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-}
-
-.col img {
-  width: 100%;
-  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
-}
-
-.col {
-  cursor: pointer;
-}
-
-.col:hover {
-  transition: all 1s;
-  transform: scale(1.5);
+  max-width: 80%;
 }
 
 //
@@ -451,7 +446,7 @@ figure img {
   font-size: $기본사이즈 - 0.125rem;
 }
 
-/* 미디어 쿼리 */
+// 미디어 쿼리 - 태블릿
 @media screen and (max-width: 768px) {
   //
   // NAVIGATION 반응형 디자인
@@ -540,17 +535,13 @@ figure img {
   }
 
   //
-  // DESIGN 반응형 디자인
-  .row {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .col:hover {
-    transition: none;
-    transform: none;
+  // DESIGN 태블릿 반응형 디자인
+  .design-items {
+    top: 255px;
   }
 }
 
+// 미디어 쿼리 - 모바일
 @media screen and (max-width: 320px) {
   // PORTFOLIO 반응형 디자인
   .portfolio-background {
@@ -573,11 +564,10 @@ figure img {
   figure img {
     width: 100%;
   }
-
   //
-  // DESIGN 반응형 디자인
-  .row {
-    grid-template-columns: 1fr;
+  // DESIGN 태블릿 반응형 디자인
+  .design-items {
+    top: 150px;
   }
 
   //
