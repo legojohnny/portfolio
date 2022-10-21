@@ -3,10 +3,7 @@ $(window).on("scroll", function () {
   let realHeight = document.querySelector("html").scrollHeight;
   let seeHeight = document.querySelector("html").clientHeight;
   let scrollValue = window.scrollY;
-
-  console.log(realHeight, seeHeight, scrollValue);
   let scrollPercent = (scrollValue / (realHeight - seeHeight)) * 100;
-  console.log(scrollPercent);
 
   $(".navscroll").css("width", scrollPercent + "%");
 });
@@ -346,11 +343,16 @@ $(".portfolio-wrap")
     }, 500);
   });
 
+// 페이지네이션 기본 스타일
+(function pagination_init() {
+  $(".slide-btn").removeClass("slide-active");
+  $(".slide-1").addClass("slide-active");
+})();
+
 // 1번 버튼 클릭시 스타일 추가
 $(".slide-1").on("click", function () {
   $(".portfolio-list").css("transform", "translateX(0vw)");
   imgNum = 1;
-  console.log(imgNum);
   $(".slide-btn").removeClass("slide-active");
   $(".slide-1").addClass("slide-active");
 });
@@ -358,7 +360,6 @@ $(".slide-1").on("click", function () {
 $(".slide-2").on("click", function () {
   $(".portfolio-list").css("transform", "translateX(-100vw)");
   imgNum = 2;
-  console.log(imgNum);
   $(".slide-btn").removeClass("slide-active");
   $(".slide-2").addClass("slide-active");
 });
@@ -366,7 +367,6 @@ $(".slide-2").on("click", function () {
 $(".slide-3").on("click", function () {
   $(".portfolio-list").css("transform", "translateX(-200vw)");
   imgNum = 2;
-  console.log(imgNum);
   $(".slide-btn").removeClass("slide-active");
   $(".slide-3").addClass("slide-active");
 });
@@ -380,7 +380,6 @@ document.querySelector(".next").addEventListener("click", function () {
   if (imgNum < imgCount) {
     slideBox.style.transform = "translateX(-" + imgNum + "00vw)";
     imgNum++;
-    console.log(imgNum);
     $(".slide-btn").removeClass("slide-active");
     $(".slide-btn")
       .eq(imgNum - 1)
@@ -389,7 +388,6 @@ document.querySelector(".next").addEventListener("click", function () {
     imgNum = 0;
     slideBox.style.transform = "translateX(-" + imgNum + "00vw)";
     imgNum++;
-    console.log(imgNum);
     $(".slide-btn").removeClass("slide-active");
     $(".slide-btn")
       .eq(imgNum - 1)
@@ -401,7 +399,6 @@ document.querySelector(".before").addEventListener("click", function () {
   if (imgNum > 1) {
     imgNum--;
     slideBox.style.transform = "translateX(-" + (imgNum - 1) + "00vw)";
-    console.log(imgNum);
     $(".slide-btn").removeClass("slide-active");
     $(".slide-btn")
       .eq(imgNum - 1)
@@ -409,7 +406,6 @@ document.querySelector(".before").addEventListener("click", function () {
   } else {
     imgNum = 3;
     slideBox.style.transform = "translateX(-" + (imgNum - 1) + "00vw)";
-    console.log(imgNum);
     $(".slide-btn").removeClass("slide-active");
     $(".slide-btn")
       .eq(imgNum - 1)
