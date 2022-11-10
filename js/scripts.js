@@ -182,17 +182,18 @@ $(".portfolio-wrap")
         `translateX(calc(${e.clientX - startPoint}px - 200vw)`
       );
     }
-    if (e.clientX - startPoint <= 0) {
-      $(".portfolio-list").css("transform", "translateX(-200vw)");
-      $(".slide-btn").removeClass("slide-active");
-      $(".slide-3").addClass("slide-active");
-    }
   });
 $(".portfolio-wrap")
   .eq(2)
   .on("mouseup", function (e) {
     mouseClick = false;
-    if (e.clientX - startPoint > 150) {
+    if (e.clientX - startPoint < -150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    } else if (e.clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");
@@ -205,6 +206,95 @@ $(".portfolio-wrap")
       console.log(e.clientX - startPoint);
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
+    }
+    setTimeout(() => {
+      $(".portfolio-list").css("transition", "none");
+    }, 500);
+  });
+
+$(".portfolio-wrap")
+  .eq(3)
+  .on("mousedown", function (e) {
+    startPoint = e.clientX;
+    mouseClick = true;
+  });
+$(".portfolio-wrap")
+  .eq(3)
+  .on("mousemove", function (e) {
+    if (mouseClick == true) {
+      $(".portfolio-list").css(
+        "transform",
+        `translateX(calc(${e.clientX - startPoint}px - 300vw)`
+      );
+    }
+  });
+$(".portfolio-wrap")
+  .eq(3)
+  .on("mouseup", function (e) {
+    mouseClick = false;
+    if (e.clientX - startPoint < -150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-400vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
+    } else if (e.clientX - startPoint > 150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-200vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-3").addClass("slide-active");
+    } else {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      console.log(e.clientX - startPoint);
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    }
+    setTimeout(() => {
+      $(".portfolio-list").css("transition", "none");
+    }, 500);
+  });
+
+$(".portfolio-wrap")
+  .eq(4)
+  .on("mousedown", function (e) {
+    startPoint = e.clientX;
+    mouseClick = true;
+  });
+$(".portfolio-wrap")
+  .eq(4)
+  .on("mousemove", function (e) {
+    if (mouseClick == true) {
+      $(".portfolio-list").css(
+        "transform",
+        `translateX(calc(${e.clientX - startPoint}px - 400vw)`
+      );
+    }
+    if (e.clientX - startPoint <= 0) {
+      $(".portfolio-list").css("transform", "translateX(-400vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
+    }
+  });
+$(".portfolio-wrap")
+  .eq(4)
+  .on("mouseup", function (e) {
+    mouseClick = false;
+    if (e.clientX - startPoint > 150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    } else {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-200vw)");
+      console.log(e.clientX - startPoint);
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
     }
     setTimeout(() => {
       $(".portfolio-list").css("transition", "none");
@@ -315,17 +405,18 @@ $(".portfolio-wrap")
         `translateX(calc(${e.touches[0].clientX - startPoint}px - 200vw)`
       );
     }
-    if (e.touches[0].clientX - startPoint <= 0) {
-      $(".portfolio-list").css("transform", "translateX(-200vw)");
-      $(".slide-btn").removeClass("slide-active");
-      $(".slide-3").addClass("slide-active");
-    }
   });
 $(".portfolio-wrap")
   .eq(2)
   .on("touchend", function (e) {
     mouseClick = false;
-    if (e.changedTouches[0].clientX - startPoint > 150) {
+    if (e.changedTouches[0].clientX - startPoint < -150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    } else if (e.changedTouches[0].clientX - startPoint > 150) {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
         .css("transform", "translateX(-100vw)");
@@ -337,6 +428,93 @@ $(".portfolio-wrap")
         .css("transform", "translateX(-200vw)");
       $(".slide-btn").removeClass("slide-active");
       $(".slide-3").addClass("slide-active");
+    }
+    setTimeout(() => {
+      $(".portfolio-list").css("transition", "none");
+    }, 500);
+  });
+
+$(".portfolio-wrap")
+  .eq(3)
+  .on("touchstart", function (e) {
+    startPoint = e.touches[0].clientX;
+    mouseClick = true;
+  });
+$(".portfolio-wrap")
+  .eq(3)
+  .on("touchmove", function (e) {
+    if (mouseClick == true) {
+      $(".portfolio-list").css(
+        "transform",
+        `translateX(calc(${e.touches[0].clientX - startPoint}px - 300vw)`
+      );
+    }
+  });
+$(".portfolio-wrap")
+  .eq(3)
+  .on("touchend", function (e) {
+    mouseClick = false;
+    if (e.changedTouches[0].clientX - startPoint < -150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-400vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
+    } else if (e.changedTouches[0].clientX - startPoint > 150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-200vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-3").addClass("slide-active");
+    } else {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    }
+    setTimeout(() => {
+      $(".portfolio-list").css("transition", "none");
+    }, 500);
+  });
+
+$(".portfolio-wrap")
+  .eq(4)
+  .on("touchstart", function (e) {
+    startPoint = e.touches[0].clientX;
+    mouseClick = true;
+  });
+$(".portfolio-wrap")
+  .eq(4)
+  .on("touchmove", function (e) {
+    if (mouseClick == true) {
+      $(".portfolio-list").css(
+        "transform",
+        `translateX(calc(${e.touches[0].clientX - startPoint}px - 400vw)`
+      );
+    }
+    if (e.touches[0].clientX - startPoint <= 0) {
+      $(".portfolio-list").css("transform", "translateX(-400vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
+    }
+  });
+$(".portfolio-wrap")
+  .eq(4)
+  .on("touchend", function (e) {
+    mouseClick = false;
+    if (e.changedTouches[0].clientX - startPoint > 150) {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-300vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-4").addClass("slide-active");
+    } else {
+      $(".portfolio-list")
+        .css("transition", "all 0.5s")
+        .css("transform", "translateX(-400vw)");
+      $(".slide-btn").removeClass("slide-active");
+      $(".slide-5").addClass("slide-active");
     }
     setTimeout(() => {
       $(".portfolio-list").css("transition", "none");
@@ -366,9 +544,23 @@ $(".slide-2").on("click", function () {
 // 3번 버튼 클릭시 스타일 추가
 $(".slide-3").on("click", function () {
   $(".portfolio-list").css("transform", "translateX(-200vw)");
-  imgNum = 2;
+  imgNum = 3;
   $(".slide-btn").removeClass("slide-active");
   $(".slide-3").addClass("slide-active");
+});
+// 4번 버튼 클릭시 스타일 추가
+$(".slide-4").on("click", function () {
+  $(".portfolio-list").css("transform", "translateX(-300vw)");
+  imgNum = 4;
+  $(".slide-btn").removeClass("slide-active");
+  $(".slide-4").addClass("slide-active");
+});
+// 5번 버튼 클릭시 스타일 추가
+$(".slide-5").on("click", function () {
+  $(".portfolio-list").css("transform", "translateX(-400vw)");
+  imgNum = 5;
+  $(".slide-btn").removeClass("slide-active");
+  $(".slide-5").addClass("slide-active");
 });
 
 // 이전, 다음 버튼 클릭시 스타일 추가
@@ -404,7 +596,7 @@ document.querySelector(".before").addEventListener("click", function () {
       .eq(imgNum - 1)
       .addClass("slide-active");
   } else {
-    imgNum = 3;
+    imgNum = 5;
     slideBox.style.transform = "translateX(-" + (imgNum - 1) + "00vw)";
     $(".slide-btn").removeClass("slide-active");
     $(".slide-btn")

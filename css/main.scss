@@ -181,24 +181,18 @@ p {
   width: 400px;
   float: right;
   margin: 10px auto;
-  animation: moving 5s both linear infinite;
+  animation: moving 5s both ease infinite;
 }
 
 @keyframes moving {
   0% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(15px) translateX(15px);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(25px) translateX(-5px);
-  }
-  75% {
-    transform: translateY(15px) translateX(15px);
+    transform: translateY(25px);
   }
   100% {
-    transform: translateY(0px) translateX(0px);
+    transform: translateY(0px);
   }
 }
 
@@ -286,7 +280,7 @@ p {
 }
 
 .skills-items > div {
-  width: 20%;
+  width: 25%;
 }
 
 // skill 배경 동그라미 디자인
@@ -323,7 +317,7 @@ p {
 }
 
 .portfolio-list {
-  width: 300vw;
+  width: 500vw;
   transition: all 1s;
   margin-left: 10%;
 }
@@ -397,15 +391,27 @@ figure img {
 .design-background {
   @extend %background;
 }
-.design-items {
-  position: sticky;
-  top: 150px;
-  transition: all 0.2s;
-}
-.design-items img {
-  display: block;
+
+.row {
+  display: grid;
+  max-width: 1200px;
   margin: auto;
-  max-width: 80%;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.col img {
+  width: 100%;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
+
+.col {
+  cursor: pointer;
+  transition: all 500ms ease-in 0s;
+}
+
+.col:hover {
+  transform: scale(2);
 }
 
 //
@@ -536,8 +542,13 @@ figure img {
 
   //
   // DESIGN 태블릿 반응형 디자인
-  .design-items {
-    top: 255px;
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .col:hover {
+    transition: none;
+    transform: none;
   }
 }
 
@@ -565,9 +576,9 @@ figure img {
     width: 100%;
   }
   //
-  // DESIGN 태블릿 반응형 디자인
-  .design-items {
-    top: 150px;
+  // DESIGN 반응형 디자인
+  .row {
+    grid-template-columns: 1fr;
   }
 
   //
