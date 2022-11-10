@@ -113,10 +113,6 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-.navbar-nav a:hover {
-  color: rgb(255, 215, 50);
-}
-
 .navbar-active {
   background-color: rgba(68, 68, 68, 0.7);
 }
@@ -220,10 +216,6 @@ p {
   color: white;
 }
 
-.btn-black:hover {
-  background-color: rgb(221, 154, 221);
-}
-
 .btn-black:active {
   background-color: rgb(192, 97, 192);
 }
@@ -234,11 +226,6 @@ p {
   background-color: #444;
   color: white;
   font-size: 1rem;
-}
-
-.btn-view:hover,
-.btn-code:hover {
-  background-color: rgb(221, 154, 221);
 }
 
 .btn-view:active,
@@ -369,10 +356,6 @@ figure img {
   vertical-align: middle;
 }
 
-.slide-btn:hover {
-  background-color: rgb(221, 154, 221);
-}
-
 .slide-active {
   background-color: rgb(221, 154, 221);
 }
@@ -393,10 +376,6 @@ figure img {
 .col {
   cursor: pointer;
   transition: all 500ms ease-in 0s;
-}
-
-.col:hover {
-  transform: scale(2);
 }
 
 .contact-list {
@@ -423,14 +402,25 @@ figure img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.contact-list li a:hover {
-  background-color: rgb(221, 154, 221);
-}
-
 .footer-text {
   font-size: 0.875rem;
 }
 
+@media screen and (min-width: 769px) {
+  .navbar-nav a:hover {
+    color: rgb(255, 215, 50);
+  }
+  .btn-black:hover,
+  .btn-view:hover,
+  .btn-code:hover,
+  .slide-btn:hover,
+  .contact-list li a:hover {
+    background-color: rgb(221, 154, 221);
+  }
+  .col:hover {
+    transform: scale(1.5);
+  }
+}
 @media screen and (max-width: 768px) {
   .navbar-container {
     height: 60px;
@@ -497,10 +487,6 @@ figure img {
   }
   .row {
     grid-template-columns: 1fr 1fr;
-  }
-  .col:hover {
-    transition: none;
-    transform: none;
   }
 }
 @media screen and (max-width: 320px) {

@@ -118,10 +118,6 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-.navbar-nav a:hover {
-  color: $메인색상;
-}
-
 // NAVIGATION 배경색
 .navbar-active {
   background-color: rgb(68, 68, 68, 0.7);
@@ -216,10 +212,6 @@ p {
   color: white;
 }
 
-.btn-black:hover {
-  background-color: $서브색상;
-}
-
 .btn-black:active {
   background-color: rgb(192, 97, 192);
 }
@@ -231,11 +223,6 @@ p {
   background-color: #444;
   color: white;
   font-size: $기본사이즈;
-}
-
-.btn-view:hover,
-.btn-code:hover {
-  background-color: $서브색상;
 }
 
 .btn-view:active,
@@ -378,10 +365,6 @@ figure img {
   vertical-align: middle;
 }
 
-.slide-btn:hover {
-  background-color: $서브색상;
-}
-
 .slide-active {
   background-color: $서브색상;
 }
@@ -408,10 +391,6 @@ figure img {
 .col {
   cursor: pointer;
   transition: all 500ms ease-in 0s;
-}
-
-.col:hover {
-  transform: scale(2);
 }
 
 //
@@ -444,12 +423,25 @@ figure img {
   box-shadow: 0 0 20px rgb(0 0 0 / 20%);
 }
 
-.contact-list li a:hover {
-  background-color: $서브색상;
-}
-
 .footer-text {
   font-size: $기본사이즈 - 0.125rem;
+}
+@media screen and (min-width: 769px) {
+  .navbar-nav a:hover {
+    color: $메인색상;
+  }
+
+  .btn-black:hover,
+  .btn-view:hover,
+  .btn-code:hover,
+  .slide-btn:hover,
+  .contact-list li a:hover {
+    background-color: $서브색상;
+  }
+
+  .col:hover {
+    transform: scale(1.5);
+  }
 }
 
 // 미디어 쿼리 - 태블릿
@@ -544,11 +536,6 @@ figure img {
   // DESIGN 태블릿 반응형 디자인
   .row {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .col:hover {
-    transition: none;
-    transform: none;
   }
 }
 

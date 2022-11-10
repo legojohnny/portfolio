@@ -291,7 +291,7 @@ $(".portfolio-wrap")
     } else {
       $(".portfolio-list")
         .css("transition", "all 0.5s")
-        .css("transform", "translateX(-200vw)");
+        .css("transform", "translateX(-400vw)");
       console.log(e.clientX - startPoint);
       $(".slide-btn").removeClass("slide-active");
       $(".slide-5").addClass("slide-active");
